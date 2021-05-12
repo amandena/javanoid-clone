@@ -1,4 +1,4 @@
-import Vector from '../components/Vector'
+import Vector from './components/Vector'
 import { flatten, getRandomFrom } from './utils'
 
 const PADDLE_AREA = 1 / 3
