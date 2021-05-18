@@ -121,16 +121,11 @@ const Scene = (containerSize) => {
   }, [])
   
   const {
-    projectDistance,
-    projectVector,
-    level,
+    projectDistance, projectVector, level,
     game: {
-      blocks,
-      paddle,
-      ball,
+      blocks, paddle, ball,
       size: {
-        width,
-        height
+        width, height
       },
       lives
     }
@@ -140,7 +135,10 @@ const Scene = (containerSize) => {
   const unit = projectDistance(ball.radius)
   return (
     <svg width={viewWidth} height={projectDistance(height)} className='scene'>
-      <Level unit={unit} level={level + 1} />
+      <Level 
+        unit={unit} 
+        level={level + 1} 
+      />
       <Lives
         lives={lives}
         containerWidth={viewWidth}
@@ -155,8 +153,14 @@ const Scene = (containerSize) => {
           {...projectVector(position)}
         />)
       )}
-      <Paddle width={projectDistance(paddle.width)} height={projectDistance(paddle.height)} {...projectVector(paddle.position)} />
-      <Ball {...projectVector(ball.center)} radius={unit} />
+      <Paddle 
+        width={projectDistance(paddle.width)} 
+        height={projectDistance(paddle.height)} {...projectVector(paddle.position)} 
+      />
+      <Ball 
+        {...projectVector(ball.center)} 
+        radius={unit} 
+      />
     </svg>
   )
 }
